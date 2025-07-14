@@ -1,4 +1,4 @@
-package com.secureapi.projectone.employee;
+package com.secureapi.projectone.customer;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,9 +15,10 @@ public class CustomerController {
         this.service = service;
     }
 
-    @GetMapping
+    @GetMapping("/")
     public List<Customer> getAll() {
         return service.getAllCustomers();
+
     }
 
     @GetMapping("/{id}")
@@ -26,7 +27,11 @@ public class CustomerController {
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
+    @PostMapping
+    public Customer create(@RequestBody Customer customer) {
+        return service.createCustomer(customer);
 
+    }
     @GetMapping("/up")
     public String healthCheck() {
         return "Customer is up";

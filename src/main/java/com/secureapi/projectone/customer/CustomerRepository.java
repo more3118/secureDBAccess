@@ -1,4 +1,4 @@
-package com.secureapi.projectone.employee;
+package com.secureapi.projectone.customer;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
